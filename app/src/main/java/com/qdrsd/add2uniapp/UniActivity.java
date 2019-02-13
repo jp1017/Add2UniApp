@@ -13,21 +13,30 @@ import com.qdrsd.add2uniapp.listener.WebappModeListener;
 import com.qdrsd.add2uniapp.listener.WebviewModeListener;
 
 import io.dcloud.EntryProxy;
+import io.dcloud.common.DHInterface.ICore;
 import io.dcloud.common.DHInterface.ISysEventListener.SysEventType;
 import io.dcloud.feature.internal.sdk.SDK;
 
-public class SDK_WebApp extends Activity {
+public class UniActivity extends Activity {
     EntryProxy mEntryProxy = null;
+    int id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            id = intent.getIntExtra("id", 0);
+        }
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         if (mEntryProxy == null) {
             //这个FrameLayout是用来承载html的,可以放到任何你想放到的位置,比如点击一个按钮,弹窗或者打开新Activity展示
             FrameLayout f = new FrameLayout(this);
-//            WebappModeListener wm = new WebappModeListener(this, f);
-            WebviewModeListener wm = new WebviewModeListener(this, f);
+            ICore.ICoreStatusListener wm = new WebviewModeListener(this, f);
+            if (id != 0) {
+                wm = new WebappModeListener(this, f);
+            }
             mEntryProxy = EntryProxy.init(this, wm);
             mEntryProxy.onCreate(this, savedInstanceState, SDK.IntegratedMode.WEBVIEW, null);
             setContentView(f);//我这里的话,直接用activity展示,并在AndroidManifest.xml设置启动就打开本界面

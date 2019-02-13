@@ -2,15 +2,14 @@ package com.qdrsd.add2uniapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,16 +18,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-
-                startActivity(new Intent(MainActivity.this, SDK_WebApp.class));
-            }
-        });
+        Button btnWeb = findViewById(R.id.btnWeb);
+        btnWeb.setOnClickListener(this);
+        Button btnapp = findViewById(R.id.btnapp);
+        btnapp.setOnClickListener(this);
     }
 
     @Override
@@ -51,5 +44,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, UniActivity.class);
+        switch (v.getId()) {
+            case R.id.btnWeb:
+                intent.putExtra("id", 0);
+                break;
+            case R.id.btnapp:
+                intent.putExtra("id", 1);
+                break;
+        }
+
+        startActivity(intent);
+
     }
 }

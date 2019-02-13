@@ -9,11 +9,23 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnWeb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:layout_centerInParent="true"
-/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="webview方式(单页面)"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnWeb"
+        android:layout_marginTop="20dp"
+        android:text="WebAPP方式(多页面)"
+        />
 
 </RelativeLayout>
