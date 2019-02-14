@@ -23,10 +23,17 @@ public class WebappModeListener implements ICore.ICoreStatusListener {
     ViewGroup rootView;
     IApp app = null;
     ProgressDialog pd = null;
+    int id;
 
     public WebappModeListener(Activity activity, ViewGroup rootView) {
         this.activity = activity;
         this.rootView = rootView;
+    }
+
+    public WebappModeListener(Activity activity, ViewGroup rootView, int id) {
+        this.activity = activity;
+        this.rootView = rootView;
+        this.id = id;
     }
 
     @Override
@@ -34,7 +41,10 @@ public class WebappModeListener implements ICore.ICoreStatusListener {
 
         //创建默认webapp，赋值appid
         String appBasePath = "/apps/HelloH5";//必须和assets\apps的项目名一致
-        String args = "{url:'http://www.bbzuche.com'}";//设置启动参数,json格式,一般为null
+        if (id != 0) {
+            appBasePath = "/apps/H5Plugin";
+        }
+        String args = null;//设置启动参数,json格式, 可在页面中通过plus.runtime.arguments;方法获取到传入的参数
 
         app = SDK.startWebApp(activity, appBasePath, args, new IWebviewStateListener() {
             @Override

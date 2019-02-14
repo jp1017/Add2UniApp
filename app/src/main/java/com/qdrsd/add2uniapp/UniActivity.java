@@ -37,8 +37,15 @@ public class UniActivity extends Activity {
             if (id != 0) {
                 wm = new WebappModeListener(this, f);
             }
+
+//            wm = new WebappModeListener(this, f, id);
+
             mEntryProxy = EntryProxy.init(this, wm);
-            mEntryProxy.onCreate(this, savedInstanceState, SDK.IntegratedMode.WEBVIEW, null);
+            if (id == 0) {
+                mEntryProxy.onCreate(this, savedInstanceState, SDK.IntegratedMode.WEBVIEW, null);
+            } else {
+                mEntryProxy.onCreate(this, savedInstanceState, SDK.IntegratedMode.WEBAPP, null);
+            }
             setContentView(f);//我这里的话,直接用activity展示,并在AndroidManifest.xml设置启动就打开本界面
         }
     }
