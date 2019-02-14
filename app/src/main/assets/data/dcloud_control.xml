@@ -1,7 +1,8 @@
 
 <msc version="1.9.9.58073">
     <apps>
+        <app appid="hello_uni" appver=""/>
         <app appid="HelloH5" appver=""/>
-        <!--<app appid="H5Plugin" appver=""/>-->
+        <app appid="H5Plugin" appver=""/>
     </apps>
 </msc>
