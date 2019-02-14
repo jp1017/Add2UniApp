@@ -40,7 +40,8 @@ public class WebappModeListener implements ICore.ICoreStatusListener {
     public void onCoreInitEnd(ICore coreHandler) {
 
         //创建默认webapp，赋值appid
-        String appBasePath = "/apps/HelloH5";//必须和assets\apps的项目名一致
+//        String appBasePath = "/apps/HelloH5";//必须和assets\apps的项目名一致
+        String appBasePath = "/apps/hello_uni";//必须和assets\apps的项目名一致
         if (id != 0) {
             appBasePath = "/apps/H5Plugin";
         }
