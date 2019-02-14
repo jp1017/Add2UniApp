@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 
 <msc version="1.9.9.58073">
     <apps>
-        <app appid="hello_uni" appver=""/>
-        <app appid="HelloH5" appver=""/>
-        <app appid="H5Plugin" appver=""/>
+        <app appid="__UNI__421A5EE" appver="1.0.0"/>
+        <app appid="HelloH5" appver="1.0.0"/>
+        <app appid="H5Plugin" appver="1.0.0"/>
     </apps>
 </msc>

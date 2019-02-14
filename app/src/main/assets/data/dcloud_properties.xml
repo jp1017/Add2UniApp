@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <properties>
     <features>
         <feature name="Barcode" value="io.dcloud.feature.barcode2.BarcodeFeatureImpl"/>
