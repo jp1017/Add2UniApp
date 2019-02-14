@@ -9,6 +9,7 @@ import io.dcloud.common.DHInterface.IApp;
 import io.dcloud.common.DHInterface.ICore;
 import io.dcloud.common.DHInterface.IWebview;
 import io.dcloud.common.DHInterface.IWebviewStateListener;
+import io.dcloud.common.util.ImageLoaderUtil;
 import io.dcloud.feature.internal.sdk.SDK;
 
 /**
@@ -108,6 +109,7 @@ public class WebappModeListener implements ICore.ICoreStatusListener {
         //加载自定runtime使用的路径
         SDK.initSDK(coreHandler);
         SDK.requestAllFeature();
+        ImageLoaderUtil.initImageLoaderL(activity);
     }
 
     @Override
@@ -129,4 +131,3 @@ public class WebappModeListener implements ICore.ICoreStatusListener {
         rootView.removeView(splashView);
     }*/
 }
-
