@@ -1,5 +1,7 @@
 ## Add2UniApp
 
+## For issue: https://github.com/dcloudio/uni-app/issues/155
+
 在已有项目添加 uni-app(https://uniapp.dcloud.io/)
 
 #### 添加方法
